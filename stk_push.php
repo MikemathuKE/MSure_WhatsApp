@@ -10,7 +10,6 @@ $dotenv->load();
 $data = json_decode($json);
 
 $phoneNumber = $data->mobile;
-$phoneNumber = str_replace("whatsapp:", "", $phoneNumber);
 $amount = $data->amount;
 
 send_stkpush($phoneNumber, $amount);
