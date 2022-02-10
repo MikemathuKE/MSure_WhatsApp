@@ -3,8 +3,10 @@
 require_once './vendor/autoload.php';
 $json = file_get_contents('php://input');
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+if (file_exists(__DIR__ . '/.env')) {
+  $dotenv = new Dotenv\Dotenv(__DIR__);
+  $dotenv->load();
+}
 
 // Converts it into a PHP object
 $data = json_decode($json);
